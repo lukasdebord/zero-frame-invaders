@@ -1,8 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy3wlkls4gbnr"]
 
+[ext_resource type="Theme" uid="uid://0s8su6t4xnqt" path="res://themes/title-screen.tres" id="1_1g8jr"]
 [ext_resource type="Script" uid="uid://dhaj8v658hb3p" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
-
-[sub_resource type="Theme" id="Theme_sl1te"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -22,47 +21,50 @@ color = Color(0, 0, 0.0980392, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -821.0
+offset_right = 821.0
+offset_bottom = 393.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 182
+theme = ExtResource("1_1g8jr")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_bottom = 70
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_sl1te")
-theme_override_font_sizes/font_size = 200
+theme = ExtResource("1_1g8jr")
 text = "TITLE"
 horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 495
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 150
+theme_override_constants/separation = 100
 
 [node name="Play" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 75
+theme = ExtResource("1_1g8jr")
 text = "PLAY"
 
 [node name="Settings" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 75
 text = "SETTINGS"
 
 [node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 75
 text = "CREDITS"
 
 [node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 75
 text = "QUIT"
 
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Play" to="." method="_on_play_button_down"]
