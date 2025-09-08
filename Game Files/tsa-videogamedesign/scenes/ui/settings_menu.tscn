@@ -14,10 +14,15 @@ script = ExtResource("1_qwcqe")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -21.0
-offset_top = 6.0
-offset_right = 1131.0
-offset_bottom = 654.0
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1.66871, 1.66911)
+color = Color(0, 0, 0.0980392, 1)
+
+[node name="Background2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 scale = Vector2(1.66871, 1.66911)
 color = Color(0, 0, 0.0980392, 1)
 
