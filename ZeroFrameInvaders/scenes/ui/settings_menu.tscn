@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://g641lq2023mu"]
+
+[ext_resource type="Script" uid="uid://b4fs1myk5fas2" path="res://scripts/ui/settings_menu.gd" id="1_qwcqe"]
+[ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="2_mhswj"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwcqe")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1.66871, 1.66911)
+color = Color(0, 0, 0.0980392, 1)
+
+[node name="Background2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+scale = Vector2(1.66871, 1.66911)
+color = Color(0, 0, 0.0980392, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.0
+offset_top = -360.0
+offset_right = 347.0
+offset_bottom = 341.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="FullscreenCheck" type="CheckBox" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_mhswj")
+
+[node name="Fullscreen" type="Label" parent="VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+text = "FULLSCREEN"
+
+[node name="Sound" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+text = "SOUND:"
+horizontal_alignment = 1
+
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+
+[node name="Music" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+text = "MUSIC:"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Save" type="Button" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+text = "SAVE"
+
+[node name="Cancel" type="Button" parent="VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_mhswj")
+text = "CANCEL"
+
+[connection signal="button_down" from="VBoxContainer2/HBoxContainer2/Save" to="." method="_on_save_button_down"]
+[connection signal="button_down" from="VBoxContainer2/HBoxContainer2/Cancel" to="." method="_on_return_button_down"]
+[connection signal="button_down" from="VBoxContainer2/HBoxContainer2/Cancel" to="." method="_on_cancel_button_down"]
