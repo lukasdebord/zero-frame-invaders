@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy3wlkls4gbnr"]
 
-[ext_resource type="Theme" uid="uid://0s8su6t4xnqt" path="res://themes/title-screen.tres" id="1_1g8jr"]
 [ext_resource type="Script" uid="uid://dhaj8v658hb3p" path="res://scripts/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="2_fe2o3"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,8 +14,8 @@ script = ExtResource("1_sl1te")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 384.0
+offset_bottom = 216.0
 scale = Vector2(1.66685, 1.66724)
 color = Color(0, 0, 0, 1)
 
@@ -24,47 +24,54 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -821.0
-offset_right = 821.0
-offset_bottom = 393.0
+offset_left = -134.5
+offset_right = 134.5
+offset_bottom = 150.0
 grow_horizontal = 2
-theme = ExtResource("1_1g8jr")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 70
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 75
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
-theme = ExtResource("1_1g8jr")
-text = "TITLE"
+theme = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 32
+text = "ZERO FRAME INVADERS"
 horizontal_alignment = 1
-
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_bottom = 350
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 100
+theme_override_constants/separation = 25
 
 [node name="Play" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_1g8jr")
+theme = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 16
 text = "PLAY"
 
 [node name="Settings" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 16
 text = "SETTINGS"
 
 [node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 16
 text = "CREDITS"
 
 [node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_fe2o3")
+theme_override_font_sizes/font_size = 16
 text = "QUIT"
 
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/Play" to="." method="_on_play_button_down"]

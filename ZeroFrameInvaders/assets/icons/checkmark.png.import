@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbd0malfumjax"
-path="res://.godot/imported/IntroPlayerShooting.png-db61f3ed69c9bfdb9f73252ec2186fbd.ctex"
+uid="uid://dlyct0n4rowhl"
+path="res://.godot/imported/checkmark.png-8545fae6dbe25ad86cc0a356b48d0008.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/IntroPlayerShooting.png"
-dest_files=["res://.godot/imported/IntroPlayerShooting.png-db61f3ed69c9bfdb9f73252ec2186fbd.ctex"]
+source_file="res://assets/icons/checkmark.png"
+dest_files=["res://.godot/imported/checkmark.png-8545fae6dbe25ad86cc0a356b48d0008.ctex"]
 
 [params]
 

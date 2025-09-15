@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	$VBoxContainer2/HBoxContainer/FullscreenCheck.grab_focus()
+	$VBoxContainer/SoundSlider.grab_focus()
 
 
 func _on_save_button_down() -> void:
