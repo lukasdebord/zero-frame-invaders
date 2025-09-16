@@ -12,12 +12,19 @@ grow_vertical = 2
 script = ExtResource("1_oap8i")
 
 [node name="Background" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -128.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.66871, 1.66911)
 color = Color(0, 0, 0.0980392, 1)
 
 [node name="Return" type="Button" parent="."]
+layout_mode = 0
 text = "QUIT"
 
 [connection signal="button_down" from="Return" to="." method="_on_return_button_down"]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://cs6eo6tfvo05w"]
+
+[ext_resource type="Texture2D" uid="uid://bn136pg6s75l4" path="res://assets/enemys/IntroEnemyGreenDeath.png" id="1_8x2p6"]
+[ext_resource type="Texture2D" uid="uid://bunkfyacsdxip" path="res://assets/enemys/IntroEnemyGreen.png" id="2_ei2fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnnh4"]
+size = Vector2(14, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyjol"]
+atlas = ExtResource("1_8x2p6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejgy5"]
+atlas = ExtResource("1_8x2p6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oj0gk"]
+atlas = ExtResource("1_8x2p6")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfciw"]
+atlas = ExtResource("1_8x2p6")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syc8l"]
+atlas = ExtResource("1_8x2p6")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s742h"]
+atlas = ExtResource("1_8x2p6")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgfse"]
+atlas = ExtResource("2_ei2fn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0ceh"]
+atlas = ExtResource("2_ei2fn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68cfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyjol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejgy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oj0gk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfciw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syc8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s742h")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgfse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0ceh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="IntroEnemyGreen" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bnnh4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_68cfb")
+animation = &"death"
+frame_progress = 0.868913

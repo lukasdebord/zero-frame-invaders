@@ -14,8 +14,8 @@ script = ExtResource("1_sl1te")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 384.0
-offset_bottom = 216.0
+offset_right = 192.0
+offset_bottom = 108.0
 scale = Vector2(1.66685, 1.66724)
 color = Color(0, 0, 0, 1)
 
@@ -24,9 +24,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -134.5
-offset_right = 134.5
-offset_bottom = 150.0
+offset_left = -128.5
+offset_right = 128.5
+offset_bottom = 151.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
