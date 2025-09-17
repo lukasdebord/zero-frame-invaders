@@ -17,7 +17,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j32hj"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_na5e0"]
 texture = ExtResource("2_j32hj")
 texture_margin_left = 5.0
 texture_margin_top = 5.0
@@ -103,7 +103,7 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
 Button/fonts/font = ExtResource("1_0clfk")
 Button/styles/disabled = SubResource("StyleBoxFlat_4svoq")
-Button/styles/focus = SubResource("StyleBoxTexture_j32hj")
+Button/styles/focus = SubResource("StyleBoxTexture_na5e0")
 Button/styles/normal = SubResource("StyleBoxTexture_vgm4w")
 Button/styles/pressed = SubResource("StyleBoxTexture_ff51x")
 CheckBox/fonts/font = ExtResource("1_0clfk")

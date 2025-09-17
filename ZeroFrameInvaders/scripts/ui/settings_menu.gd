@@ -1,8 +1,11 @@
 extends Control
 
+@onready var buttons = $VBoxContainer.get_children()
+
 func _ready() -> void:
 	$VBoxContainer/MenuMargins/VBoxContainer/SoundSlider.grab_focus()
-
+	
+	MenuSetup.setup_buttons(buttons)
 
 func _on_save_button_down() -> void:
 	pass # Replace with function body.
