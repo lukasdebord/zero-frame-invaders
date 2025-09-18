@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bexfacvyqopb2"]
+[gd_scene load_steps=16 format=3 uid="uid://bexfacvyqopb2"]
 
 [ext_resource type="Texture2D" uid="uid://db616ntierrck" path="res://assets/player/IntroPlayerDeath.png" id="1_7cw8d"]
 [ext_resource type="Texture2D" uid="uid://b2bvs53k5b73r" path="res://assets/player/IntroPlayerIdle.png" id="2_0q3es"]
@@ -31,6 +31,14 @@ atlas = ExtResource("1_7cw8d")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
+atlas = ExtResource("2_0q3es")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cw8d"]
+atlas = ExtResource("2_0q3es")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q3es"]
 atlas = ExtResource("2_0q3es")
 region = Rect2(16, 0, 16, 16)
 
@@ -77,6 +85,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7cw8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q3es")
+}],
+"loop": true,
+"name": &"menu",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fm80t")
 }, {
 "duration": 1.0,
@@ -97,5 +116,4 @@ shape = SubResource("RectangleShape2D_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_ugbui")
-animation = &"idle"
-frame_progress = 0.84966
+animation = &"menu"

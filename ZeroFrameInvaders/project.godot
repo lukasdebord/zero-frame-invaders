@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 MenuSetup="*res://scripts/ui/menu_setup.gd"
+IntroPlayer="*res://scenes/player/IntroPlayer.tscn"
 
 [display]
 
