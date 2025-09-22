@@ -16,12 +16,7 @@ func load_intro_player(parent: Node, start_ctrl: Control):
 	await get_tree().process_frame # Allow a frame for UI to update
 	
 	# Set starting position of ship
-	var target_pos = 0
-	if start_ctrl is Button:
-		target_pos = start_ctrl.global_position + Vector2(start_ctrl.size.x / 2, start_ctrl.size.y + 10)
-	if start_ctrl is HSlider:
-		target_pos = start_ctrl.global_position + Vector2(start_ctrl.value / 2, start_ctrl.size.y + 5)
-	IntroPlayer.global_position = target_pos
+	update_target_position(start_ctrl)
 	IntroPlayer.visible = true
 	
 	# Player ship menu animation
@@ -33,13 +28,24 @@ func load_intro_player(parent: Node, start_ctrl: Control):
 func setup_controls(controls: Array):
 	for ctrl in controls:
 		if ctrl is Control:
-			ctrl.connect("focus_entered", Callable(self, "_on_control_focus").bind(ctrl))
+			ctrl.connect("focus_entered", Callable(self, "_on_focus_entered").bind(ctrl))
+		if ctrl is HSlider:
+			ctrl.connect("value_changed", Callable(self, "_on_value_changed").bind(ctrl))
+
+
+func _on_focus_entered(ctrl: Control):
+	update_target_position(ctrl)
+func _on_value_changed(ctrl: Control):
+	update_target_position(ctrl)
 
 # Move ship to focused button
-func _on_control_focus(ctrl: Control):
-	var target_pos = 0
+func update_target_position(ctrl: Control):
+	var target_pos = Vector2.ZERO
 	if ctrl is Button:
 		target_pos = ctrl.global_position + Vector2(ctrl.size.x / 2, ctrl.size.y + 10)
 	if ctrl is HSlider:
-		target_pos = ctrl.global_position + Vector2(ctrl.value / 2, ctrl.size.y + 5)
+		var slider_width = ctrl.size.x
+		var slider_range = ctrl.max_value - ctrl.min_value
+		target_pos = ctrl.global_position + Vector2((ctrl.value - ctrl.min_value) / slider_range * slider_width, ctrl.size.y + 5)
+		print("this runs")
 	IntroPlayer.global_position = target_pos
