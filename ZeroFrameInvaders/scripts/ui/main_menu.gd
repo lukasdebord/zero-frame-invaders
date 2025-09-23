@@ -10,6 +10,8 @@ func _ready() -> void:
 
 	MenuSetup.load_intro_player(self, start_btn)
 	MenuSetup.setup_controls(buttons)
+
+
 # Change scene to intro
 func _on_play_button_down() -> void:
 	get_tree().change_scene_to_file("res://scenes/intro_scene.tscn")

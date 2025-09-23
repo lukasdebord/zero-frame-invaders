@@ -1,10 +1,10 @@
 extends Control
 
-@onready var starting_slider = $VBoxContainer/MenuMargins/VBoxContainer/SoundSlider
-@onready var controls = $VBoxContainer/Buttons.get_children() + $VBoxContainer/MenuMargins/VBoxContainer.get_children()
+@onready var starting_slider = $VBoxContainer/MenuMargins/Menu/SoundSlider
+@onready var controls = $VBoxContainer/Buttons.get_children() + $VBoxContainer/MenuMargins/Menu.get_children()
 
 func _ready() -> void:
-	$VBoxContainer/MenuMargins/VBoxContainer/SoundSlider.grab_focus()
+	starting_slider.grab_focus()
 	
 	MenuSetup.load_intro_player(self, starting_slider)
 	MenuSetup.setup_controls(controls)

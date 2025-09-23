@@ -43,20 +43,20 @@ horizontal_alignment = 1
 
 [node name="MenuMargins" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MenuMargins"]
+[node name="Menu" type="VBoxContainer" parent="VBoxContainer/MenuMargins"]
 layout_mode = 2
 
-[node name="Sound" type="Label" parent="VBoxContainer/MenuMargins/VBoxContainer"]
+[node name="Sound" type="Label" parent="VBoxContainer/MenuMargins/Menu"]
 layout_mode = 2
 theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 12
 text = "SOUND:"
 horizontal_alignment = 1
 
-[node name="SoundSlider" type="HSlider" parent="VBoxContainer/MenuMargins/VBoxContainer"]
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer/MenuMargins/Menu"]
 layout_mode = 2
 focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath("../MusicSlider")
@@ -64,14 +64,18 @@ theme = ExtResource("2_mhswj")
 step = 5.0
 value = 75.0
 
-[node name="Music" type="Label" parent="VBoxContainer/MenuMargins/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MenuMargins/Menu"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="Music" type="Label" parent="VBoxContainer/MenuMargins/Menu"]
 layout_mode = 2
 theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 12
 text = "MUSIC:"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MenuMargins/VBoxContainer"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MenuMargins/Menu"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SoundSlider")
 focus_neighbor_bottom = NodePath("../../../Buttons/Save")
@@ -86,7 +90,7 @@ size_flags_horizontal = 4
 [node name="Save" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../../MenuMargins/VBoxContainer/MusicSlider")
+focus_neighbor_top = NodePath("../../MenuMargins/Menu/MusicSlider")
 focus_neighbor_right = NodePath("../Cancel")
 focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("2_mhswj")
@@ -96,7 +100,7 @@ text = "SAVE"
 [node name="Cancel" type="Button" parent="VBoxContainer/Buttons"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Save")
-focus_neighbor_top = NodePath("../../MenuMargins/VBoxContainer/MusicSlider")
+focus_neighbor_top = NodePath("../../MenuMargins/Menu/MusicSlider")
 focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("2_mhswj")

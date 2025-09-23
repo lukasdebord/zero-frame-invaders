@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bexfacvyqopb2"]
+[gd_scene load_steps=17 format=3 uid="uid://bexfacvyqopb2"]
 
+[ext_resource type="Script" uid="uid://kh8f53pcjsku" path="res://scenes/player/intro_player.gd" id="1_0q3es"]
 [ext_resource type="Texture2D" uid="uid://db616ntierrck" path="res://assets/player/IntroPlayerDeath.png" id="1_7cw8d"]
 [ext_resource type="Texture2D" uid="uid://b2bvs53k5b73r" path="res://assets/player/IntroPlayerIdle.png" id="2_0q3es"]
 
@@ -106,7 +107,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="Node2D"]
+[node name="IntroPlayer" type="Node2D"]
+script = ExtResource("1_0q3es")
 
 [node name="Area2D" type="Area2D" parent="."]
 
