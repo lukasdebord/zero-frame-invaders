@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Change scene to intro
 func _on_play_button_down() -> void:
-	get_tree().change_scene_to_file("res://scenes/intro_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/cutscenes/intro_scene.tscn")
 
 # Change scene to settings
 func _on_settings_button_down() -> void:
