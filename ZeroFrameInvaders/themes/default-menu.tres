@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://chdtpj8prgv80"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://chdtpj8prgv80"]
 
 [ext_resource type="FontFile" uid="uid://blbdga1riq0yg" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_0clfk"]
 [ext_resource type="Texture2D" uid="uid://ddlgppukyqjef" path="res://assets/icons/MenuUI.png" id="2_j32hj"]
@@ -83,6 +83,9 @@ region_rect = Rect2(102, 8, 36, 4)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee1rl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ff51x"]
+bg_color = Color(0, 0, 0, 0.39215687)
+
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
@@ -123,6 +126,7 @@ Label/constants/outline_size = 0
 Label/constants/shadow_offset_x = 0
 Label/constants/shadow_offset_y = 0
 Label/constants/shadow_outline_size = 0
-Label/font_sizes/font_size = 100
+Label/font_sizes/font_size = 99
 Label/fonts/font = ExtResource("1_0clfk")
 Label/styles/normal = SubResource("StyleBoxEmpty_ee1rl")
+Panel/styles/panel = SubResource("StyleBoxFlat_ff51x")
