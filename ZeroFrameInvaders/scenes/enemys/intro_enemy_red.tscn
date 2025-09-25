@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://cean4ndbi4ln0"]
+
+[ext_resource type="Texture2D" uid="uid://0887s5suour8" path="res://assets/enemys/IntroEnemyRedDeath.png" id="1_77job"]
+[ext_resource type="Texture2D" uid="uid://bglufgqrt5bp3" path="res://assets/enemys/IntroEnemyRed.png" id="2_71j8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnnh4"]
+size = Vector2(12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f33d"]
+atlas = ExtResource("1_77job")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jue8u"]
+atlas = ExtResource("1_77job")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8adb"]
+atlas = ExtResource("1_77job")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05dko"]
+atlas = ExtResource("1_77job")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw5b2"]
+atlas = ExtResource("1_77job")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35gut"]
+atlas = ExtResource("1_77job")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oekpy"]
+atlas = ExtResource("2_71j8l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nlwe"]
+atlas = ExtResource("2_71j8l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68cfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f33d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jue8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8adb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05dko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw5b2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35gut")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oekpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nlwe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[node name="IntroEnemyRed" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_bnnh4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_68cfb")
+animation = &"idle"
+frame_progress = 0.977806
