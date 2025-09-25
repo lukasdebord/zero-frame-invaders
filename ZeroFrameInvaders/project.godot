@@ -12,13 +12,12 @@ config_version=5
 
 config/name="ZeroFrameInvaders"
 run/main_scene="uid://dy3wlkls4gbnr"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 MenuSetup="*res://scripts/ui/menu_setup.gd"
-IntroPlayer="*res://scenes/player/IntroPlayer.tscn"
 
 [display]
 

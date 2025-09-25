@@ -45,6 +45,7 @@ func _on_value_changed(_value: float, ctrl: Control):
 # Move ship to focused item
 func update_target_position(ctrl: Control):
 	var target_pos = Vector2.ZERO
+	
 	# Move ship to button
 	if ctrl is Button:
 		target_pos = ctrl.global_position + Vector2(ctrl.size.x / 2, ctrl.size.y + 10)
