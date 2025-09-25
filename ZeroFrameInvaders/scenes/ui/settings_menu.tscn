@@ -108,5 +108,5 @@ theme_override_font_sizes/font_size = 12
 text = "CANCEL"
 
 [connection signal="button_down" from="VBoxContainer/Buttons/Save" to="." method="_on_save_button_down"]
-[connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_cancel_button_down"]
 [connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_return_button_down"]
+[connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_cancel_button_down"]

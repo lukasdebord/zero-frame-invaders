@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb7thqr7cejla"]
+
+[ext_resource type="Texture2D" uid="uid://c2qviioi4qukl" path="res://assets/player/IntroPlayerBullet.png" id="1_2as5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5eos"]
+size = Vector2(2, 10)
+
+[node name="Bullet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2as5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j5eos")

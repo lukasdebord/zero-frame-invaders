@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bexfacvyqopb2"]
 
-[ext_resource type="Script" uid="uid://kh8f53pcjsku" path="res://scenes/player/intro_player.gd" id="1_0q3es"]
+[ext_resource type="Script" uid="uid://kh8f53pcjsku" path="res://scripts/player/intro_player.gd" id="1_0q3es"]
 [ext_resource type="Texture2D" uid="uid://db616ntierrck" path="res://assets/player/IntroPlayerDeath.png" id="1_7cw8d"]
 [ext_resource type="Texture2D" uid="uid://b2bvs53k5b73r" path="res://assets/player/IntroPlayerIdle.png" id="2_0q3es"]
 
@@ -118,4 +118,5 @@ shape = SubResource("RectangleShape2D_lvxji")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 sprite_frames = SubResource("SpriteFrames_ugbui")
-animation = &"menu"
+animation = &"idle"
+frame_progress = 0.18346345
