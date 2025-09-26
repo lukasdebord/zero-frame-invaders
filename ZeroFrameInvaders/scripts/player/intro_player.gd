@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var anim_sprite = $Area2D/AnimatedSprite2D
+@onready var anim_sprite = $CharacterBody2D/AnimatedSprite2D
 
 const VELOCITY = 100
 

@@ -7,8 +7,10 @@ size = Vector2(2, 10)
 
 [node name="Bullet" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("1_2as5g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_j5eos")
