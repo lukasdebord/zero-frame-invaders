@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://hm5212ayomef" path="res://assets/enemys/IntroEnemyYellowDeath.png" id="1_dbcsu"]
 [ext_resource type="Texture2D" uid="uid://qxk4h1x5gwcp" path="res://assets/enemys/IntroEnemyYellow.png" id="2_wl01i"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnnh4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbcsu"]
 size = Vector2(8, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0l8mk"]
@@ -38,7 +38,7 @@ region = Rect2(0, 0, 16, 16)
 atlas = ExtResource("2_wl01i")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_68cfb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_wl01i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -59,7 +59,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6nl18")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -75,13 +75,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="IntroEnemyYellow" type="Node2D"]
+[node name="IntroEnemyYellow" type="Area2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dbcsu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_bnnh4")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
-sprite_frames = SubResource("SpriteFrames_68cfb")
-animation = &"idle"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wl01i")
+animation = &"death"

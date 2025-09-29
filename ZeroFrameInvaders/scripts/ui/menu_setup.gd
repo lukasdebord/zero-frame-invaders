@@ -10,7 +10,7 @@ const INTRO_PLAYER_SCENE := preload("res://scenes/player/IntroPlayer.tscn")
 func load_intro_player(parent: Node, start_ctrl: Control):
 	if IntroPlayer and IntroPlayer.is_inside_tree():
 		# Player ship menu animation
-		if IntroPlayer.has_node("CharacterBody2D/AnimatedSprite2D"):
+		if IntroPlayer.has_node("AnimatedSprite2D"):
 			IntroPlayer.anim_sprite.play("menu")
 		return  # Already added
 
@@ -25,7 +25,7 @@ func load_intro_player(parent: Node, start_ctrl: Control):
 	IntroPlayer.visible = true
 	
 	# Player ship menu animation
-	if IntroPlayer.has_node("CharacterBody2D/AnimatedSprite2D"):
+	if IntroPlayer.has_node("AnimatedSprite2D"):
 		IntroPlayer.anim_sprite.play("menu")
 
 
