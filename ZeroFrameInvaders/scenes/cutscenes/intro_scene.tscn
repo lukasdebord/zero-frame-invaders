@@ -27,20 +27,21 @@ sources/10 = SubResource("TileSetScenesCollectionSource_wap0n")
 [node name="IntroScene" type="Node2D"]
 process_mode = 1
 
-[node name="Background" type="Polygon2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(0, 0, 320, 0, 320, 180, 0, 180)
 
-[node name="IntroPlayer" parent="Background" instance=ExtResource("1_a7yub")]
+[node name="IntroPlayer" parent="ColorRect" instance=ExtResource("1_a7yub")]
 position = Vector2(160, 157)
-script = null
 
-[node name="EnemyLayer" type="TileMapLayer" parent="Background"]
+[node name="EnemyLayer" type="TileMapLayer" parent="ColorRect"]
 tile_map_data = PackedByteArray("AAACAAYACgAAAAAAAwADAAYACgAAAAAAAwAEAAYACgAAAAAAAwAFAAYACgAAAAAAAwAKAAYACgAAAAAAAwALAAYACgAAAAAAAwAMAAYACgAAAAAAAwANAAYACgAAAAAAAwABAAUACgAAAAAABgACAAUACgAAAAAABgADAAUACgAAAAAABgAEAAUACgAAAAAABgAFAAUACgAAAAAABgAGAAUACgAAAAAABgAJAAUACgAAAAAABgAKAAUACgAAAAAABgALAAUACgAAAAAABgAMAAUACgAAAAAABgANAAUACgAAAAAABgAOAAUACgAAAAAABgAFAAQACgAAAAAAAgAEAAQACgAAAAAAAgADAAQACgAAAAAAAgACAAQACgAAAAAAAgAKAAQACgAAAAAAAgALAAQACgAAAAAAAgAMAAQACgAAAAAAAgANAAQACgAAAAAAAgABAAMACgAAAAAABQACAAMACgAAAAAABQADAAMACgAAAAAABQAEAAMACgAAAAAABQAFAAMACgAAAAAABQAGAAMACgAAAAAABQAJAAMACgAAAAAABQAKAAMACgAAAAAABQALAAMACgAAAAAABQAMAAMACgAAAAAABQANAAMACgAAAAAABQAOAAMACgAAAAAABQAKAAIACgAAAAAAAQALAAIACgAAAAAAAQAMAAIACgAAAAAAAQANAAIACgAAAAAAAQAFAAIACgAAAAAAAQAEAAIACgAAAAAAAQADAAIACgAAAAAAAQACAAIACgAAAAAAAQAGAAEACgAAAAAABAAHAAIACgAAAAAABAAIAAIACgAAAAAABAAJAAEACgAAAAAABAA=")
 tile_set = SubResource("TileSet_ca4nc")
 script = ExtResource("8_jqdx3")
 
-[node name="GameUI" parent="Background" instance=ExtResource("8_k3812")]
+[node name="GameUI" parent="ColorRect" instance=ExtResource("8_k3812")]
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -51,7 +52,7 @@ offset_bottom = 90.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="ColorRect"]
 position = Vector2(160, 90)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_xy0d8")]
