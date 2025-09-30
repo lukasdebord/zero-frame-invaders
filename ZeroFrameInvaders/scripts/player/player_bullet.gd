@@ -1,0 +1,24 @@
+extends Area2D
+
+const SPEED = 250
+var direction = Vector2.UP
+
+
+func _ready():
+	connect("area_entered", Callable(self, "_on_collision"))
+
+
+func _process(delta):
+	position += direction * SPEED * delta
+	
+	if not get_viewport_rect().has_point(global_position):
+		queue_free()
+
+
+func _on_collision(collided_enemy: Area2D) -> void:
+	var anim_sprite = collided_enemy.get_child(1)
+	if collided_enemy.get_parent() == get_node("/root/IntroScene/ColorRect/EnemyLayer"):
+		anim_sprite.play("death")
+		# await anim_sprite.animation_finished -> does not finish (needs to be AnimationPlayer)
+		queue_free()
+		collided_enemy.queue_free()

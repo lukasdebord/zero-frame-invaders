@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://crepi01evfff6"]
+[gd_scene load_steps=13 format=4 uid="uid://crepi01evfff6"]
 
 [ext_resource type="PackedScene" uid="uid://bexfacvyqopb2" path="res://scenes/player/IntroPlayer.tscn" id="1_a7yub"]
 [ext_resource type="PackedScene" uid="uid://b3pey4w0upfom" path="res://scenes/enemys/intro_enemy_blue.tscn" id="2_8uyns"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://keeeyjg0twm3" path="res://scenes/enemys/intro_enemy_pink.tscn" id="5_jqdx3"]
 [ext_resource type="PackedScene" uid="uid://cean4ndbi4ln0" path="res://scenes/enemys/intro_enemy_red.tscn" id="6_n2lsi"]
 [ext_resource type="PackedScene" uid="uid://dxcq4unwfcw3m" path="res://scenes/enemys/intro_enemy_yellow.tscn" id="7_ehvto"]
+[ext_resource type="Script" uid="uid://bbl1xl2mx32wa" path="res://scripts/enemies/enemy_layer.gd" id="8_jqdx3"]
 [ext_resource type="PackedScene" uid="uid://cpii7ibb5hjch" path="res://scenes/ui/game_ui.tscn" id="8_k3812"]
 [ext_resource type="PackedScene" uid="uid://dedlkl1afty0d" path="res://scenes/ui/pause_menu.tscn" id="9_xy0d8"]
 
@@ -24,6 +25,7 @@ tile_size = Vector2i(20, 20)
 sources/10 = SubResource("TileSetScenesCollectionSource_wap0n")
 
 [node name="IntroScene" type="Node2D"]
+process_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 320.0
@@ -31,11 +33,12 @@ offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
 [node name="IntroPlayer" parent="ColorRect" instance=ExtResource("1_a7yub")]
-position = Vector2(160, 154)
+position = Vector2(160, 157)
 
 [node name="EnemyLayer" type="TileMapLayer" parent="ColorRect"]
-tile_map_data = PackedByteArray("AAACAAIACgAAAAAAAQADAAIACgAAAAAAAQAEAAIACgAAAAAAAQAFAAIACgAAAAAAAQACAAQACgAAAAAAAgADAAQACgAAAAAAAgAEAAQACgAAAAAAAgAFAAQACgAAAAAAAgABAAMACgAAAAAABQACAAMACgAAAAAABQADAAMACgAAAAAABQAEAAMACgAAAAAABQAFAAMACgAAAAAABQAGAAMACgAAAAAABQAOAAMACgAAAAAABQANAAMACgAAAAAABQAMAAMACgAAAAAABQALAAMACgAAAAAABQAKAAMACgAAAAAABQAJAAMACgAAAAAABQACAAUACgAAAAAABgABAAUACgAAAAAABgADAAUACgAAAAAABgAEAAUACgAAAAAABgAFAAUACgAAAAAABgAGAAUACgAAAAAABgACAAYACgAAAAAAAwADAAYACgAAAAAAAwAEAAYACgAAAAAAAwAFAAYACgAAAAAAAwAKAAYACgAAAAAAAwALAAYACgAAAAAAAwAMAAYACgAAAAAAAwANAAYACgAAAAAAAwAKAAQACgAAAAAAAgALAAQACgAAAAAAAgAMAAQACgAAAAAAAgANAAQACgAAAAAAAgAJAAUACgAAAAAABgAKAAUACgAAAAAABgALAAUACgAAAAAABgAMAAUACgAAAAAABgANAAUACgAAAAAABgAOAAUACgAAAAAABgAKAAIACgAAAAAAAQALAAIACgAAAAAAAQAMAAIACgAAAAAAAQANAAIACgAAAAAAAQAHAAEACgAAAAAABAAIAAEACgAAAAAABAAGAAAACgAAAAAABAAJAAAACgAAAAAABAA=")
+tile_map_data = PackedByteArray("AAACAAYACgAAAAAAAwADAAYACgAAAAAAAwAEAAYACgAAAAAAAwAFAAYACgAAAAAAAwAKAAYACgAAAAAAAwALAAYACgAAAAAAAwAMAAYACgAAAAAAAwANAAYACgAAAAAAAwABAAUACgAAAAAABgACAAUACgAAAAAABgADAAUACgAAAAAABgAEAAUACgAAAAAABgAFAAUACgAAAAAABgAGAAUACgAAAAAABgAJAAUACgAAAAAABgAKAAUACgAAAAAABgALAAUACgAAAAAABgAMAAUACgAAAAAABgANAAUACgAAAAAABgAOAAUACgAAAAAABgAFAAQACgAAAAAAAgAEAAQACgAAAAAAAgADAAQACgAAAAAAAgACAAQACgAAAAAAAgAKAAQACgAAAAAAAgALAAQACgAAAAAAAgAMAAQACgAAAAAAAgANAAQACgAAAAAAAgABAAMACgAAAAAABQACAAMACgAAAAAABQADAAMACgAAAAAABQAEAAMACgAAAAAABQAFAAMACgAAAAAABQAGAAMACgAAAAAABQAJAAMACgAAAAAABQAKAAMACgAAAAAABQALAAMACgAAAAAABQAMAAMACgAAAAAABQANAAMACgAAAAAABQAOAAMACgAAAAAABQAKAAIACgAAAAAAAQALAAIACgAAAAAAAQAMAAIACgAAAAAAAQANAAIACgAAAAAAAQAFAAIACgAAAAAAAQAEAAIACgAAAAAAAQADAAIACgAAAAAAAQACAAIACgAAAAAAAQAGAAEACgAAAAAABAAHAAIACgAAAAAABAAIAAIACgAAAAAABAAJAAEACgAAAAAABAA=")
 tile_set = SubResource("TileSet_ca4nc")
+script = ExtResource("8_jqdx3")
 
 [node name="GameUI" parent="ColorRect" instance=ExtResource("8_k3812")]
 layout_mode = 0
@@ -53,6 +56,7 @@ grow_vertical = 1
 position = Vector2(160, 90)
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_xy0d8")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

@@ -1,0 +1,66 @@
+extends CharacterBody2D
+
+@onready var anim_sprite = $AnimatedSprite2D
+@onready var timer = $Timer
+@onready var BulletScene := preload("res://scenes/player/PlayerBullet.tscn")
+
+const VELOCITY = 100
+
+var disabled_scenes = ["MainMenu", "SettingsMenu", "PauseMenu", "Credits"]
+var fire_rate = 0.2 		# Seconds between shots (0.2 to match animation)
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# Determine whether player should move in current scene
+	set_script_status(get_tree().current_scene.name)
+	
+	# Start timer and set fire rate
+	timer.wait_time = fire_rate
+	timer.start()
+
+
+
+# Disable _process if user is in a menu
+func set_script_status(curr_scene: String):
+	for scene in disabled_scenes:
+		if curr_scene == scene:
+			set_process(false)
+
+
+
+# Handle player's movment
+func handle_player_movement(delta: float):
+	# Move left
+	if Input.is_action_pressed("Move_Left"):
+		self.global_position.x -= VELOCITY * delta
+
+	# Move right
+	if Input.is_action_pressed("Move_Right"):
+		self.global_position.x += VELOCITY * delta
+
+	# Shoot bullet if within fire rate range
+	if Input.is_action_pressed("Shoot") and timer.is_stopped():
+		shoot_bullet()
+		anim_sprite.play("shooting")
+		timer.start()
+	else:
+		anim_sprite.play("idle")		# Play idle animation
+
+
+func shoot_bullet():
+	var bullet = BulletScene.instantiate()
+	bullet.z_index = 0
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = self.global_position
+	
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	# Check if game is paused
+	if get_tree().paused:
+		return
+	
+	# Handle players movement
+	handle_player_movement(delta)

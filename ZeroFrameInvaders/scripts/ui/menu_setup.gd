@@ -4,9 +4,14 @@ var IntroPlayer: Node2D = null
 
 const INTRO_PLAYER_SCENE := preload("res://scenes/player/IntroPlayer.tscn")
 
+
+
 # Instantiate IntroPlayer into scene
 func load_intro_player(parent: Node, start_ctrl: Control):
 	if IntroPlayer and IntroPlayer.is_inside_tree():
+		# Player ship menu animation
+		if IntroPlayer.has_node("AnimatedSprite2D"):
+			IntroPlayer.anim_sprite.play("menu")
 		return  # Already added
 
 	# Instantiate intro player ship
@@ -20,9 +25,8 @@ func load_intro_player(parent: Node, start_ctrl: Control):
 	IntroPlayer.visible = true
 	
 	# Player ship menu animation
-	if IntroPlayer.has_node("Area2D/AnimatedSprite2D"):
-		var anim = IntroPlayer.get_node("Area2D/AnimatedSprite2D")
-		anim.play("menu")
+	if IntroPlayer.has_node("AnimatedSprite2D"):
+		IntroPlayer.anim_sprite.play("menu")
 
 
 # Setup all button child nodes in array given
