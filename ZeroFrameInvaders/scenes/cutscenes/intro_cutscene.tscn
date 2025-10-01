@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://do8e2axn0kj2w"]
+
+[sub_resource type="Animation" id="Animation_mcfef"]
+resource_name = "TVScreenOn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1iurh"]
+_data = {
+&"TVScreenOn": SubResource("Animation_mcfef")
+}
+
+[node name="IntroCutscene" type="AnimationPlayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_1iurh")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
