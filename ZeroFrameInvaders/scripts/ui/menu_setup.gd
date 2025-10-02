@@ -32,10 +32,11 @@ func load_intro_player(parent: Node, start_ctrl: Control):
 # Setup all button child nodes in array given
 func setup_controls(controls: Array):
 	for ctrl in controls:
-		if ctrl is Control:
-			ctrl.connect("focus_entered", Callable(self, "_on_focus_entered").bind(ctrl))
-		if ctrl is Slider:
-			ctrl.connect("value_changed", Callable(self, "_on_value_changed").bind(ctrl))
+		if !(ctrl.is_connected("focus_entered", Callable(self, "_on_focus_entered"))):
+			if ctrl is Control:
+				ctrl.connect("focus_entered", Callable(self, "_on_focus_entered").bind(ctrl))
+			if ctrl is Slider:
+				ctrl.connect("value_changed", Callable(self, "_on_value_changed").bind(ctrl))
 
 
 # Run on Control focused

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g641lq2023mu"]
+[gd_scene load_steps=4 format=3 uid="uid://g641lq2023mu"]
 
 [ext_resource type="Script" uid="uid://b4fs1myk5fas2" path="res://scripts/ui/settings_menu.gd" id="1_qwcqe"]
 [ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="2_mhswj"]
+[ext_resource type="PackedScene" uid="uid://b1vplgl6a7bhx" path="res://shaders/CRT_Effect.tscn" id="3_x3vyp"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -106,6 +107,8 @@ focus_neighbor_bottom = NodePath(".")
 theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 12
 text = "CANCEL"
+
+[node name="CRTShader" parent="." instance=ExtResource("3_x3vyp")]
 
 [connection signal="button_down" from="VBoxContainer/Buttons/Save" to="." method="_on_save_button_down"]
 [connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_return_button_down"]

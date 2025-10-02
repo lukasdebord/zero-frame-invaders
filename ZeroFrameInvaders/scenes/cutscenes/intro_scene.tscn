@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://crepi01evfff6"]
+[gd_scene load_steps=14 format=4 uid="uid://crepi01evfff6"]
 
 [ext_resource type="PackedScene" uid="uid://bexfacvyqopb2" path="res://scenes/player/IntroPlayer.tscn" id="1_a7yub"]
 [ext_resource type="PackedScene" uid="uid://b3pey4w0upfom" path="res://scenes/enemys/intro_enemy_blue.tscn" id="2_8uyns"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bbl1xl2mx32wa" path="res://scripts/enemies/enemy_layer.gd" id="8_jqdx3"]
 [ext_resource type="PackedScene" uid="uid://cpii7ibb5hjch" path="res://scenes/ui/game_ui.tscn" id="8_k3812"]
 [ext_resource type="PackedScene" uid="uid://dedlkl1afty0d" path="res://scenes/ui/pause_menu.tscn" id="9_xy0d8"]
+[ext_resource type="PackedScene" uid="uid://b1vplgl6a7bhx" path="res://shaders/CRT_Effect.tscn" id="11_n2lsi"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wap0n"]
 resource_name = "EnemyPositions"
@@ -51,6 +52,7 @@ offset_right = 160.0
 offset_bottom = 90.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.89506304, 0.9704082)
 
 [node name="Camera2D" type="Camera2D" parent="ColorRect"]
 position = Vector2(160, 90)
@@ -66,3 +68,5 @@ offset_right = 160.0
 offset_bottom = 90.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="CRTShader" parent="." instance=ExtResource("11_n2lsi")]

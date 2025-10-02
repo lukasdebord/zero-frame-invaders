@@ -29,7 +29,7 @@ func handle_enemy_movement(delta: float):
 		enemy.global_position = start_pos + Vector2(x_offset, y_offset)
 
 
-func handle_enemy_collision(collided_enemy: Node2D):
+func handle_enemy_collision(_collided_enemy: Node2D):
 	pass
 
 

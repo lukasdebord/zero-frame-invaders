@@ -49,11 +49,11 @@ func handle_player_movement(delta: float):
 
 
 func shoot_bullet():
-	var bullet = BulletScene.instantiate()
+	var bullet = BulletScene.instantiate()		# Spawn Bullet
 	bullet.z_index = 0
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
-	
+	print("Player shot")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,3 +64,4 @@ func _process(delta: float) -> void:
 	
 	# Handle players movement
 	handle_player_movement(delta)
+	

@@ -4,13 +4,35 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vuyn1"]
 shader = ExtResource("1_gwm8x")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.2000000095
+shader_parameter/scanlines_width = 0.10000000475
+shader_parameter/grille_opacity = 0.10000000475
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 4.00000019
+shader_parameter/roll_variation = 5.0
+shader_parameter/distort_intensity = 0.02000000095
+shader_parameter/noise_opacity = 0.150000007125
+shader_parameter/noise_speed = 2.0
+shader_parameter/static_noise_intensity = 0.02000000095
+shader_parameter/aberration = 0.006000047784999962
+shader_parameter/brightness = 1.6
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.250000011875
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/vignette_opacity = 0.5
 
 [sub_resource type="QuadMesh" id="QuadMesh_c7rve"]
 size = Vector2(320, 180)
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CRTShader" type="CanvasLayer"]
+offset = Vector2(160, 90)
+transform = Transform2D(1, 0, 0, 1, 160, 90)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 material = SubResource("ShaderMaterial_vuyn1")
-position = Vector2(160, 90)
 mesh = SubResource("QuadMesh_c7rve")

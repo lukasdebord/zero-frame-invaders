@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dedlkl1afty0d"]
+[gd_scene load_steps=5 format=3 uid="uid://dedlkl1afty0d"]
 
 [ext_resource type="Script" uid="uid://ctwuajnpqlpja" path="res://scripts/ui/pause_menu.gd" id="1_0lmf7"]
 [ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="1_6tw0m"]
+[ext_resource type="PackedScene" uid="uid://b1vplgl6a7bhx" path="res://shaders/CRT_Effect.tscn" id="3_f6eus"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lmf7"]
 bg_color = Color(0, 0, 0, 1)
@@ -85,6 +86,8 @@ theme = ExtResource("1_6tw0m")
 theme_override_font_sizes/font_size = 12
 text = "RETURN TO 
 MAIN MENU"
+
+[node name="CRTShader" parent="." instance=ExtResource("3_f6eus")]
 
 [connection signal="button_down" from="Background/Panel/VBoxContainer/Resume" to="." method="_on_resume_button_down"]
 [connection signal="button_down" from="Background/Panel/VBoxContainer/Settings" to="." method="_on_settings_button_down"]
