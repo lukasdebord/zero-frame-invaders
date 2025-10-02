@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1vplgl6a7bhx"]
+
+[ext_resource type="Shader" uid="uid://d2bemsf0kuehl" path="res://shaders/CRTShader.gdshader" id="1_gwm8x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vuyn1"]
+shader = ExtResource("1_gwm8x")
+
+[sub_resource type="QuadMesh" id="QuadMesh_c7rve"]
+size = Vector2(320, 180)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_vuyn1")
+position = Vector2(160, 90)
+mesh = SubResource("QuadMesh_c7rve")
