@@ -14,8 +14,8 @@ func _input(event):
 # Pause/Unpause game 
 func _toggle_pause():
 	if get_tree().paused:
-		get_tree().paused = false
 		hide()
+		get_tree().paused = false
 	else:
 		get_tree().paused = true
 		show()

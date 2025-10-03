@@ -44,8 +44,6 @@ func handle_player_movement(delta: float):
 		shoot_bullet()
 		anim_sprite.play("shooting")
 		timer.start()
-	else:
-		anim_sprite.play("idle")		# Play idle animation
 
 
 func shoot_bullet():
@@ -53,7 +51,6 @@ func shoot_bullet():
 	bullet.z_index = 0
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
-	print("Player shot")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

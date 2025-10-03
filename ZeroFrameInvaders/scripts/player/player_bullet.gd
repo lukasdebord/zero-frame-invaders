@@ -9,8 +9,10 @@ func _ready():
 
 
 func _process(delta):
+	# Bullet movement
 	position += direction * SPEED * delta
 	
+	# Remove bullet if offscreen
 	if not get_viewport_rect().has_point(global_position):
 		queue_free()
 

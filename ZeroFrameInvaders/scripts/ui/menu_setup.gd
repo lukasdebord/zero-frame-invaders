@@ -1,32 +1,30 @@
 extends Node
 
-var IntroPlayer: Node2D = null
+var IntroPlayerMenu: Node2D = null
 
-const INTRO_PLAYER_SCENE := preload("res://scenes/player/IntroPlayer.tscn")
+const INTRO_PLAYER_SCENE := preload("res://scenes/player/intro_player_menu.tscn")
 
 
 
-# Instantiate IntroPlayer into scene
+# Instantiate IntroPlayerMenu into scene
 func load_intro_player(parent: Node, start_ctrl: Control):
-	if IntroPlayer and IntroPlayer.is_inside_tree():
+	if IntroPlayerMenu and IntroPlayerMenu.is_inside_tree():
 		# Player ship menu animation
-		if IntroPlayer.has_node("AnimatedSprite2D"):
-			IntroPlayer.anim_sprite.play("menu")
+		IntroPlayerMenu.play("menu")
 		return  # Already added
 
 	# Instantiate intro player ship
-	IntroPlayer = INTRO_PLAYER_SCENE.instantiate()
-	parent.add_child(IntroPlayer)
+	IntroPlayerMenu = INTRO_PLAYER_SCENE.instantiate()
+	parent.add_child(IntroPlayerMenu)
 	
 	await get_tree().process_frame # Allow a frame for UI to update
 	
 	# Set starting position of ship
 	update_target_position(start_ctrl)
-	IntroPlayer.visible = true
+	IntroPlayerMenu.visible = true
 	
 	# Player ship menu animation
-	if IntroPlayer.has_node("AnimatedSprite2D"):
-		IntroPlayer.anim_sprite.play("menu")
+	IntroPlayerMenu.play("menu")
 
 
 # Setup all button child nodes in array given
@@ -60,4 +58,4 @@ func update_target_position(ctrl: Control):
 		var slider_range = (ctrl.max_value - ctrl.min_value)
 		var normalized_pos = Vector2(ctrl.global_position.x + 8, ctrl.global_position.y) 	# Offset by half grabber width
 		target_pos = normalized_pos + Vector2((ctrl.value) / slider_range * slider_width, ctrl.size.y + 5)
-	IntroPlayer.global_position = target_pos
+	IntroPlayerMenu.global_position = target_pos
