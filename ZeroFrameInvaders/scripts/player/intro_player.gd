@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var anim_sprite = $AnimatedSprite2D
+@onready var anim_sprite = $AnimationPlayer
 @onready var timer = $Timer
 @onready var BulletScene := preload("res://scenes/player/PlayerBullet.tscn")
 
