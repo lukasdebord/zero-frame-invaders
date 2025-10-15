@@ -42,7 +42,7 @@ func handle_player_movement(delta: float):
 	# Shoot bullet if within fire rate range
 	if Input.is_action_pressed("Shoot") and timer.is_stopped():
 		shoot_bullet()
-		anim_sprite.play("shooting")
+		anim_sprite.play("shoot")
 		timer.start()
 
 

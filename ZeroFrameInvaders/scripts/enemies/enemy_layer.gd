@@ -13,7 +13,7 @@ func _ready() -> void:
 		# Store enemy starting pos
 		enemy.set_meta("start_position", enemy.global_position)
 		
-		var sprite = enemy.get_node("AnimatedSprite2D")
+		var sprite = enemy.get_child(2)
 		sprite.play("idle")
 
 
@@ -27,10 +27,6 @@ func handle_enemy_movement(delta: float):
 	for enemy in get_children():
 		var start_pos = enemy.get_meta("start_position")
 		enemy.global_position = start_pos + Vector2(x_offset, y_offset)
-
-
-func handle_enemy_collision(_collided_enemy: Node2D):
-	pass
 
 
 func _process(delta: float) -> void:
