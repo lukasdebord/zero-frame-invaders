@@ -21,6 +21,5 @@ func _on_collision(collided_enemy: Area2D) -> void:
 	var anim_sprite = collided_enemy.get_child(2)
 	if collided_enemy.get_parent() == get_node("/root/IntroScene/ColorRect/EnemyLayer"):
 		anim_sprite.play("death")
-		await anim_sprite.animation_finished
 		queue_free()
 		collided_enemy.queue_free()
