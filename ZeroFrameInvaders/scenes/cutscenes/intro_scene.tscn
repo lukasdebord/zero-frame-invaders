@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c1vo70lghpukv" path="res://scenes/enemys/intro_enemy_red.tscn" id="6_n2lsi"]
 [ext_resource type="PackedScene" uid="uid://c616itkxgxfuq" path="res://scenes/enemys/intro_enemy_yellow.tscn" id="7_ehvto"]
 [ext_resource type="Script" uid="uid://bbl1xl2mx32wa" path="res://scripts/enemies/enemy_layer.gd" id="8_jqdx3"]
-[ext_resource type="PackedScene" uid="uid://cpii7ibb5hjch" path="res://scenes/ui/game_ui.tscn" id="8_k3812"]
+[ext_resource type="PackedScene" uid="uid://cpii7ibb5hjch" path="res://scenes/ui/intro_game_ui.tscn" id="8_k3812"]
 [ext_resource type="PackedScene" uid="uid://dedlkl1afty0d" path="res://scenes/ui/pause_menu.tscn" id="9_xy0d8"]
 [ext_resource type="PackedScene" uid="uid://b1vplgl6a7bhx" path="res://shaders/CRT_Effect.tscn" id="11_n2lsi"]
 

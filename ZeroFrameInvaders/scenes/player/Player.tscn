@@ -1,8 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbnj6x61f5bkp"]
+[gd_scene load_steps=5 format=3 uid="uid://bbnj6x61f5bkp"]
 
 [ext_resource type="Texture2D" uid="uid://craxe2fm8ic6r" path="res://assets/player/PlayerSpritesheet.png" id="1_wr5hl"]
 
-[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_gfjak"]
+[sub_resource type="Animation" id="Animation_524rm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_4kuee"]
 resource_name = "idle"
@@ -22,21 +35,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_524rm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tpg5x"]
 _data = {
 &"RESET": SubResource("Animation_524rm"),
@@ -44,9 +42,6 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConcavePolygonShape2D_gfjak")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wr5hl")
@@ -56,3 +51,6 @@ hframes = 6
 libraries = {
 &"": SubResource("AnimationLibrary_tpg5x")
 }
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -28, -7, -10, -23, -2, -5, 2, -5, 6, -9, 14, 9, 14, 5, 6, 5, 2, 23, -2, 7, -10)

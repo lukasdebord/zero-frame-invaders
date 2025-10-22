@@ -1,11 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpii7ibb5hjch"]
+[gd_scene load_steps=11 format=3 uid="uid://cxi7lwdkfuy6v"]
 
-[ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="1_xjfbv"]
-[ext_resource type="Texture2D" uid="uid://cfxn0oo3oevym" path="res://assets/player/IntroPlayer.png" id="2_xjfbv"]
+[ext_resource type="Texture2D" uid="uid://craxe2fm8ic6r" path="res://assets/player/PlayerSpritesheet.png" id="1_gwk6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjfbv"]
+atlas = ExtResource("1_gwk6t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwk6t"]
+atlas = ExtResource("1_gwk6t")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
-atlas = ExtResource("2_xjfbv")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("1_gwk6t")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fct72"]
+atlas = ExtResource("1_gwk6t")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru5ln"]
+atlas = ExtResource("1_gwk6t")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1bdg"]
+atlas = ExtResource("1_gwk6t")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="Animation" id="Animation_bma8u"]
+resource_name = "idle"
+length = 0.50000834
+loop_mode = 1
+step = 0.083333336
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_xjfbv"), SubResource("AtlasTexture_gwk6t"), SubResource("AtlasTexture_bma8u"), SubResource("AtlasTexture_fct72"), SubResource("AtlasTexture_ru5ln"), SubResource("AtlasTexture_v1bdg")]
+}
+
+[sub_resource type="Animation" id="Animation_fct72"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_xjfbv")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ru5ln"]
+_data = {
+&"RESET": SubResource("Animation_fct72"),
+&"idle": SubResource("Animation_bma8u")
+}
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -15,6 +73,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Life1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(0.33255515, 0.33255515)
+texture = SubResource("AtlasTexture_xjfbv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Life1"]
+libraries = {
+&"": SubResource("AnimationLibrary_ru5ln")
+}
+
+[node name="Life2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 23.0
+offset_right = 87.0
+offset_bottom = 64.0
+scale = Vector2(0.33255515, 0.33255515)
+texture = SubResource("AtlasTexture_xjfbv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Life2"]
+libraries = {
+&"": SubResource("AnimationLibrary_ru5ln")
+}
+
+[node name="Life3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_right = 109.0
+offset_bottom = 64.0
+scale = Vector2(0.33255515, 0.33255515)
+texture = SubResource("AtlasTexture_xjfbv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Life3"]
+libraries = {
+&"": SubResource("AnimationLibrary_ru5ln")
+}
+
+[node name="Lives" type="HBoxContainer" parent="Life3"]
+layout_mode = 0
+offset_left = -408.9547
+offset_right = -88.95471
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -22,38 +123,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 145
 
-[node name="Score" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 160
-
-[node name="Score" type="Label" parent="VBoxContainer/Score"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme = ExtResource("1_xjfbv")
-theme_override_font_sizes/font_size = 16
-text = "SCORE: 000000"
-
-[node name="HighScore" type="Label" parent="VBoxContainer/Score"]
-layout_mode = 2
-theme = ExtResource("1_xjfbv")
-theme_override_font_sizes/font_size = 16
-text = "HI-SCORE: 0000"
-
-[node name="Lives" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Life1" type="TextureRect" parent="VBoxContainer/Lives"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_bma8u")
-
-[node name="Life2" type="TextureRect" parent="VBoxContainer/Lives"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_bma8u")
-
-[node name="Life3" type="TextureRect" parent="VBoxContainer/Lives"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_bma8u")
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
