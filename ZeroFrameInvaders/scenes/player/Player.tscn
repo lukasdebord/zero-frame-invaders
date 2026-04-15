@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbnj6x61f5bkp"]
+[gd_scene load_steps=6 format=3 uid="uid://bbnj6x61f5bkp"]
 
+[ext_resource type="Script" uid="uid://c5ahmw5qluv17" path="res://scripts/player/player.gd" id="1_gfjak"]
 [ext_resource type="Texture2D" uid="uid://craxe2fm8ic6r" path="res://assets/player/PlayerSpritesheet.png" id="1_wr5hl"]
 
 [sub_resource type="Animation" id="Animation_524rm"]
@@ -42,6 +43,7 @@ _data = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_gfjak")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_wr5hl")

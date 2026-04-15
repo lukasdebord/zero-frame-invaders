@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3pey4w0upfom"]
+[gd_scene load_steps=8 format=3 uid="uid://b3pey4w0upfom"]
 
+[ext_resource type="Script" uid="uid://v61ab3fmg62o" path="res://scripts/enemies/enemy_logic.gd" id="1_pn35a"]
 [ext_resource type="Texture2D" uid="uid://jpamwp4l6p71" path="res://assets/enemys/IntroEnemyBlue.png" id="2_b6m0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pn35a"]
@@ -63,6 +64,7 @@ _data = {
 }
 
 [node name="IntroEnemyBlue" type="Area2D"]
+script = ExtResource("1_pn35a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
@@ -76,3 +78,5 @@ hframes = 8
 libraries = {
 &"": SubResource("AnimationLibrary_bnnh4")
 }
+
+[node name="Timer" type="Timer" parent="."]

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var anim_sprite = $AnimationPlayer
 @onready var timer = $Timer
-@onready var BulletScene := preload("res://scenes/player/PlayerBullet.tscn")
+@onready var BulletScene := preload("res://scenes/player/Bullet.tscn")
 
 const VELOCITY = 100
 
@@ -49,8 +49,10 @@ func handle_player_movement(delta: float):
 func shoot_bullet():
 	var bullet = BulletScene.instantiate()		# Spawn Bullet
 	bullet.z_index = 0
+	bullet.is_enemy_bullet = false		# change bullet to player owned
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
