@@ -1,6 +1,6 @@
 extends Area2D
 
-const SPEED = 250
+const SPEED = 150
 var direction = Vector2.ZERO
 var is_enemy_bullet = true
 
@@ -24,12 +24,16 @@ func _process(delta):
 		queue_free()
 
 
-func _on_collision(collided_object: Area2D) -> void:
+# bullet collision with enemy
+func _on_collision(collided_object: Node) -> void:
 	if !is_enemy_bullet and collided_object.get_parent() == get_node("/root/IntroScene/ColorRect/EnemyLayer"):
 		var anim_sprite = collided_object.get_child(2)
 		anim_sprite.play("death")
 		queue_free()
 		collided_object.queue_free()
-	if is_enemy_bullet and collided_object.get_parent() == get_node("/root/IntroScene/ColorRect/IntroPlayer"):
-		var anim_sprite = collided_object.get_child(1)
+
+# character collision with bullet 
+func _on_body_entered(body: Node2D) -> void:
+	if is_enemy_bullet and body == get_node("/root/IntroScene/ColorRect/IntroPlayer"):
+		var anim_sprite = body.get_child(1)
 		anim_sprite.play("death")

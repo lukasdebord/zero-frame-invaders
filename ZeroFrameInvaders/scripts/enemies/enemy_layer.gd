@@ -1,9 +1,9 @@
 extends TileMapLayer
 
-const X_FREQUENCY = 2		# Controls speed of horizontal movement
+const X_FREQUENCY = 1		# Controls speed of horizontal movement
 const X_AMPLITUDE = 20		# Controls horizontal range
-const Y_FREQUENCY = 4		# Controls speed of vertical movement
-const Y_AMPLITUDE = 5		# Controls vertical range
+const Y_FREQUENCY = 2		# Controls speed of vertical movement
+const Y_AMPLITUDE = 0		# Controls vertical range
 
 
 # Called when the node enters the scene tree for the first time.

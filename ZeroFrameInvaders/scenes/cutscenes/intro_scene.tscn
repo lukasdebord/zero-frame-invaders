@@ -22,7 +22,7 @@ scenes/5/scene = ExtResource("6_n2lsi")
 scenes/6/scene = ExtResource("7_ehvto")
 
 [sub_resource type="TileSet" id="TileSet_ca4nc"]
-tile_size = Vector2i(20, 20)
+tile_size = Vector2i(20, 12)
 sources/10 = SubResource("TileSetScenesCollectionSource_wap0n")
 
 [node name="IntroScene" type="Node2D"]

@@ -1,8 +1,8 @@
 extends Area2D
 
 @onready var bullet_scene := preload("res://scenes/player/Bullet.tscn")
-@export var min_shoot_time := 1.0
-@export var max_shoot_time := 8.0
+@export var min_shoot_time := 10.0
+@export var max_shoot_time := 30.0
 
 @onready var shoot_timer = $Timer
 
@@ -19,7 +19,7 @@ func reset_timer():
 	shoot_timer.wait_time = randf_range(min_shoot_time, max_shoot_time)
 	shoot_timer.start()
 
-func _on_Timer_timeout():
+func _on_timer_timeout():
 	shoot()
 	reset_timer()
 

@@ -9,7 +9,7 @@ const INTRO_PLAYER_SCENE := preload("res://scenes/player/intro_player_menu.tscn"
 func load_intro_player(parent: Node, start_ctrl: Control):
 	if IntroPlayerMenu and IntroPlayerMenu.is_inside_tree():
 		# Player ship menu animation
-		IntroPlayerMenu.play("menu")
+		#IntroPlayerMenu.play("menu")
 		return  # Already added
 
 	# Instantiate intro player ship

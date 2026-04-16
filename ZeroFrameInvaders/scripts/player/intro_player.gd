@@ -7,7 +7,7 @@ extends CharacterBody2D
 const VELOCITY = 100
 
 var disabled_scenes = ["MainMenu", "SettingsMenu", "PauseMenu", "Credits"]
-var fire_rate = 0.2 		# Seconds between shots (0.2 to match animation)
+var fire_rate = 0.4 		# Seconds between shots (0.2 to match animation)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -64,3 +64,7 @@ func _process(delta: float) -> void:
 	# Handle players movement
 	handle_player_movement(delta)
 	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	pass # Replace with function body.
