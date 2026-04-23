@@ -1,10 +1,7 @@
 extends TileMapLayer
 
-const X_FREQUENCY = 1		# Controls speed of horizontal movement
-const X_AMPLITUDE = 20		# Controls horizontal range
-const Y_FREQUENCY = 2		# Controls speed of vertical movement
-const Y_AMPLITUDE = 0		# Controls vertical range
-
+const LINEAR_SPEED = 4.0
+const PIXEL_STEP = 8		# Controls step distance
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,12 +18,18 @@ func _ready() -> void:
 var time = 0.0
 func handle_enemy_movement(delta: float):
 	time += delta
-	# Sinusoidal functions to control enemy movemement up and down and left and right
-	var x_offset = X_AMPLITUDE * sin(X_FREQUENCY * time)
-	var y_offset = Y_AMPLITUDE * sin(Y_FREQUENCY * time)
+	
+	var x_offset = 0
+	var y_offset = 0
+
+	# Snaps enemies to a grid
+	var raw_pos = Vector2(x_offset, y_offset)
+	var snapped_pos = raw_pos.snapped(Vector2(PIXEL_STEP, PIXEL_STEP))
+
+	# Update enemy position
 	for enemy in get_children():
 		var start_pos = enemy.get_meta("start_position")
-		enemy.global_position = start_pos + Vector2(x_offset, y_offset)
+		enemy.global_position = start_pos + snapped_pos
 
 
 func _process(delta: float) -> void:
