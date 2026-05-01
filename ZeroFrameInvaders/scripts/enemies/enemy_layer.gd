@@ -1,12 +1,19 @@
 extends TileMapLayer
 
-const LINEAR_SPEED = 4.0
-const PIXEL_STEP = 8		# Controls step distance
+@onready var enemy_timer = $Timer
+
+const UPDATE_SPEED = 1.0	# Controls how often enemy pos is updated in seconds
+const X_SPEED = 5			# Controls how fast enemies move side to side
+const Y_SPEED = 1			# Controls how fast enemies move downwards
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	await get_tree().process_frame
 	for enemy in get_children():
+		if enemy is Timer:
+			continue
 		# Store enemy starting pos
 		enemy.set_meta("start_position", enemy.global_position)
 		
@@ -19,17 +26,22 @@ var time = 0.0
 func handle_enemy_movement(delta: float):
 	time += delta
 	
-	var x_offset = 0
-	var y_offset = 0
-
-	# Snaps enemies to a grid
-	var raw_pos = Vector2(x_offset, y_offset)
-	var snapped_pos = raw_pos.snapped(Vector2(PIXEL_STEP, PIXEL_STEP))
-
-	# Update enemy position
-	for enemy in get_children():
-		var start_pos = enemy.get_meta("start_position")
-		enemy.global_position = start_pos + snapped_pos
+	if enemy_timer.time_left == 0:
+		
+		# set enemy offset
+		var x_offset = X_SPEED * time
+		var y_offset = Y_SPEED * time
+		
+		# Update enemy postion
+		for enemy in get_children():
+			if enemy is Timer:
+				continue
+				
+			var start_pos = enemy.get_meta("start_position")
+			enemy.global_position = start_pos + Vector2(x_offset, y_offset)
+		
+		# restart timer
+		enemy_timer.start(UPDATE_SPEED)
 
 
 func _process(delta: float) -> void:

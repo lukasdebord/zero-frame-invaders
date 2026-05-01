@@ -41,6 +41,10 @@ tile_map_data = PackedByteArray("AAACAAYACgAAAAAAAwADAAYACgAAAAAAAwAEAAYACgAAAAA
 tile_set = SubResource("TileSet_ca4nc")
 script = ExtResource("8_jqdx3")
 
+[node name="Timer" type="Timer" parent="ColorRect/EnemyLayer"]
+one_shot = true
+autostart = true
+
 [node name="GameUI" parent="ColorRect" instance=ExtResource("8_k3812")]
 layout_mode = 0
 anchors_preset = 0
