@@ -4,11 +4,12 @@ extends CharacterBody2D
 @onready var timer = $Timer
 @onready var BulletScene := preload("res://scenes/player/Bullet.tscn")
 
+
 const VELOCITY = 100
 
 var disabled_scenes = ["MainMenu", "SettingsMenu", "PauseMenu", "Credits"]
 var fire_rate = 0.4 		# Seconds between shots (0.2 to match animation)
-
+var lives = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,8 +64,13 @@ func _process(delta: float) -> void:
 	
 	# Handle players movement
 	handle_player_movement(delta)
-	
 
-
+# signal for when animations are finished
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	pass # Replace with function body.
+	# remove life if hit and reset animation
+	if anim_name == "death":
+		anim_sprite.play("idle")
+		lives -= 1
+		# end game if player dies
+		if lives == 0:
+			get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")

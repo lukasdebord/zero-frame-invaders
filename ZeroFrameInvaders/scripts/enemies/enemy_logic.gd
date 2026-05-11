@@ -26,5 +26,11 @@ func _on_timer_timeout():
 	reset_timer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
+
+# signal for animation finished
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	# enemy dies
+	if anim_name == "death":
+		queue_free()
