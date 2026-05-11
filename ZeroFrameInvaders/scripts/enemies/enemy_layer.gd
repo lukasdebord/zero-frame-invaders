@@ -11,9 +11,11 @@ var right_boundary = 325
 var descend = false
 var direction = 1
 
+var can_move = true		# used for pausing during animations
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("enemy_layer")
 	
 	await get_tree().process_frame
 	for enemy in get_children():
@@ -34,6 +36,8 @@ func _process(_delta: float) -> void:
 
 # Handles enemy movement every UPDATE_SPEED seconds
 func _on_timer_timeout() -> void:
+	if !can_move:
+		return
 	var edge_hit = false
 	
 	# Update enemy postion

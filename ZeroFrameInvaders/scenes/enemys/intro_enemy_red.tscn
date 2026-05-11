@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1vo70lghpukv"]
+[gd_scene format=3 uid="uid://c1vo70lghpukv"]
 
 [ext_resource type="Script" uid="uid://v61ab3fmg62o" path="res://scripts/enemies/enemy_logic.gd" id="1_77job"]
 [ext_resource type="Texture2D" uid="uid://do0djjppyv3y2" path="res://assets/enemys/IntroEnemyRed.png" id="2_71j8l"]
@@ -63,22 +63,21 @@ _data = {
 &"idle": SubResource("Animation_3wg5g")
 }
 
-[node name="IntroEnemyBlue" type="Area2D"]
+[node name="IntroEnemyBlue" type="Area2D" unique_id=1565314888]
 script = ExtResource("1_77job")
+score_value = 175
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=341288783]
 shape = SubResource("RectangleShape2D_pn35a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=859479704]
 texture = ExtResource("2_71j8l")
 hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bnnh4")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1351112310]
+libraries/ = SubResource("AnimationLibrary_bnnh4")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=962916033]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

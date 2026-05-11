@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1t5vv2h787tk"]
+[gd_scene format=3 uid="uid://b1t5vv2h787tk"]
 
 [ext_resource type="Script" uid="uid://v61ab3fmg62o" path="res://scripts/enemies/enemy_logic.gd" id="1_s7lr8"]
 [ext_resource type="Texture2D" uid="uid://co1dtgi7qqaf5" path="res://assets/enemys/IntroEnemyCyan.png" id="2_tddpy"]
@@ -63,23 +63,22 @@ _data = {
 &"idle": SubResource("Animation_3wg5g")
 }
 
-[node name="IntroEnemyBlue" type="Area2D"]
+[node name="IntroEnemyBlue" type="Area2D" unique_id=1061700997]
 script = ExtResource("1_s7lr8")
+score_value = 250
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1222586960]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_pn35a")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=18347609]
 texture = ExtResource("2_tddpy")
 hframes = 8
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bnnh4")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1515465054]
+libraries/ = SubResource("AnimationLibrary_bnnh4")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=1958424966]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpii7ibb5hjch"]
+[gd_scene format=3 uid="uid://cpii7ibb5hjch"]
 
 [ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="1_jk3ak"]
 [ext_resource type="Texture2D" uid="uid://cfxn0oo3oevym" path="res://assets/player/IntroPlayer.png" id="2_5smmc"]
+[ext_resource type="Script" uid="uid://b28jy11u58gdq" path="res://scripts/ui/score.gd" id="2_ecygr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bma8u"]
 atlas = ExtResource("2_5smmc")
 region = Rect2(0, 0, 16, 16)
 
-[node name="GameUI" type="Control"]
+[node name="GameUI" type="Control" unique_id=1798515521]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2032440342]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,36 +25,38 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 145
 
-[node name="Score" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Score" type="HBoxContainer" parent="VBoxContainer" unique_id=2134859019]
 layout_mode = 2
-theme_override_constants/separation = 160
+theme_override_constants/separation = 140
+alignment = 1
 
-[node name="Score" type="Label" parent="VBoxContainer/Score"]
+[node name="Score" type="Label" parent="VBoxContainer/Score" unique_id=507845677]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_jk3ak")
 theme_override_font_sizes/font_size = 16
 text = "SCORE: 000000"
+script = ExtResource("2_ecygr")
 
-[node name="HighScore" type="Label" parent="VBoxContainer/Score"]
+[node name="HighScore" type="Label" parent="VBoxContainer/Score" unique_id=1091989922]
 layout_mode = 2
 theme = ExtResource("1_jk3ak")
 theme_override_font_sizes/font_size = 16
-text = "HI-SCORE: 0000"
+text = "HI-SCORE: 000000"
 
-[node name="Lives" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Lives" type="HBoxContainer" parent="VBoxContainer" unique_id=1747975630]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Life1" type="TextureRect" parent="VBoxContainer/Lives"]
+[node name="Life1" type="TextureRect" parent="VBoxContainer/Lives" unique_id=644337946]
 layout_mode = 2
 texture = SubResource("AtlasTexture_bma8u")
 
-[node name="Life2" type="TextureRect" parent="VBoxContainer/Lives"]
+[node name="Life2" type="TextureRect" parent="VBoxContainer/Lives" unique_id=246182822]
 layout_mode = 2
 texture = SubResource("AtlasTexture_bma8u")
 
-[node name="Life3" type="TextureRect" parent="VBoxContainer/Lives"]
+[node name="Life3" type="TextureRect" parent="VBoxContainer/Lives" unique_id=1549697716]
 layout_mode = 2
 texture = SubResource("AtlasTexture_bma8u")

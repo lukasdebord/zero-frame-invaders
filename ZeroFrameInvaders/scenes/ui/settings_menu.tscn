@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://g641lq2023mu"]
+[gd_scene format=3 uid="uid://g641lq2023mu"]
 
 [ext_resource type="Script" uid="uid://b4fs1myk5fas2" path="res://scripts/ui/settings_menu.gd" id="1_qwcqe"]
 [ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="2_mhswj"]
 [ext_resource type="PackedScene" uid="uid://b1vplgl6a7bhx" path="res://shaders/CRT_Effect.tscn" id="3_x3vyp"]
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" unique_id=1925429991]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qwcqe")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1128664158]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_vertical = 2
 scale = Vector2(1.66871, 1.66911)
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1886213601]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -35,29 +35,29 @@ offset_right = 92.0
 offset_bottom = 200.0
 grow_horizontal = 2
 
-[node name="Settings" type="Label" parent="VBoxContainer"]
+[node name="Settings" type="Label" parent="VBoxContainer" unique_id=490653267]
 layout_mode = 2
 theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 32
 text = "SETTINGS"
 horizontal_alignment = 1
 
-[node name="MenuMargins" type="MarginContainer" parent="VBoxContainer"]
+[node name="MenuMargins" type="MarginContainer" parent="VBoxContainer" unique_id=1312602353]
 layout_mode = 2
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 10
 
-[node name="Menu" type="VBoxContainer" parent="VBoxContainer/MenuMargins"]
+[node name="Menu" type="VBoxContainer" parent="VBoxContainer/MenuMargins" unique_id=195578888]
 layout_mode = 2
 
-[node name="Sound" type="Label" parent="VBoxContainer/MenuMargins/Menu"]
+[node name="Sound" type="Label" parent="VBoxContainer/MenuMargins/Menu" unique_id=286782857]
 layout_mode = 2
 theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 12
 text = "SOUND:"
 horizontal_alignment = 1
 
-[node name="SoundSlider" type="HSlider" parent="VBoxContainer/MenuMargins/Menu"]
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer/MenuMargins/Menu" unique_id=183471899]
 layout_mode = 2
 focus_neighbor_top = NodePath(".")
 focus_neighbor_bottom = NodePath("../MusicSlider")
@@ -65,18 +65,18 @@ theme = ExtResource("2_mhswj")
 step = 5.0
 value = 75.0
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MenuMargins/Menu"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MenuMargins/Menu" unique_id=503491122]
 layout_mode = 2
 theme_override_constants/margin_top = 5
 
-[node name="Music" type="Label" parent="VBoxContainer/MenuMargins/Menu"]
+[node name="Music" type="Label" parent="VBoxContainer/MenuMargins/Menu" unique_id=790562309]
 layout_mode = 2
 theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 12
 text = "MUSIC:"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MenuMargins/Menu"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/MenuMargins/Menu" unique_id=1138497414]
 layout_mode = 2
 focus_neighbor_top = NodePath("../SoundSlider")
 focus_neighbor_bottom = NodePath("../../../Buttons/Save")
@@ -84,11 +84,11 @@ theme = ExtResource("2_mhswj")
 step = 5.0
 value = 50.0
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer" unique_id=1169280572]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Save" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Save" type="Button" parent="VBoxContainer/Buttons" unique_id=1033172966]
 layout_mode = 2
 focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../../MenuMargins/Menu/MusicSlider")
@@ -98,7 +98,7 @@ theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 12
 text = "SAVE"
 
-[node name="Cancel" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Cancel" type="Button" parent="VBoxContainer/Buttons" unique_id=1487039141]
 layout_mode = 2
 focus_neighbor_left = NodePath("../Save")
 focus_neighbor_top = NodePath("../../MenuMargins/Menu/MusicSlider")
@@ -108,7 +108,7 @@ theme = ExtResource("2_mhswj")
 theme_override_font_sizes/font_size = 12
 text = "CANCEL"
 
-[node name="CRTShader" parent="." instance=ExtResource("3_x3vyp")]
+[node name="CRTShader" parent="." unique_id=1251303979 instance=ExtResource("3_x3vyp")]
 
 [connection signal="button_down" from="VBoxContainer/Buttons/Save" to="." method="_on_save_button_down"]
 [connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_return_button_down"]

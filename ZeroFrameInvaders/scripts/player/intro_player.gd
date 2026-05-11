@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var BulletScene := preload("res://scenes/player/Bullet.tscn")
 
 
+var can_control = true
+
 const VELOCITY = 100
 
 var disabled_scenes = ["MainMenu", "SettingsMenu", "PauseMenu", "Credits"]
@@ -59,7 +61,7 @@ func shoot_bullet():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Check if game is paused
-	if get_tree().paused:
+	if get_tree().paused || !can_control:
 		return
 	
 	# Handle players movement
@@ -74,3 +76,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		# end game if player dies
 		if lives == 0:
 			get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
+		
+		can_control = true
+		var enemy_layer = get_tree().get_first_node_in_group("enemy_layer")
+		enemy_layer.can_move = true
+		enemy_layer.enemy_timer.paused = false
+		
+		global_position.x = 160.0		# reset player position

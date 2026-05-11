@@ -3,6 +3,7 @@ extends Area2D
 @onready var bullet_scene := preload("res://scenes/player/Bullet.tscn")
 @export var min_shoot_time := 1.0
 @export var max_shoot_time := 20.0
+@export var score_value := 0
 
 @onready var shoot_timer = $Timer
 
@@ -24,10 +25,6 @@ func reset_timer():
 func _on_timer_timeout():
 	shoot()
 	reset_timer()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 # signal for animation finished
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

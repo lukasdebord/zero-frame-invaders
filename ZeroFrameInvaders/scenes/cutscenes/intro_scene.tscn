@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://crepi01evfff6"]
+[gd_scene format=4 uid="uid://crepi01evfff6"]
 
 [ext_resource type="PackedScene" uid="uid://bexfacvyqopb2" path="res://scenes/player/IntroPlayer.tscn" id="1_a7yub"]
 [ext_resource type="PackedScene" uid="uid://b3pey4w0upfom" path="res://scenes/enemys/intro_enemy_blue.tscn" id="2_8uyns"]
@@ -25,29 +25,29 @@ scenes/6/scene = ExtResource("7_ehvto")
 tile_size = Vector2i(20, 12)
 sources/10 = SubResource("TileSetScenesCollectionSource_wap0n")
 
-[node name="IntroScene" type="Node2D"]
+[node name="IntroScene" type="Node2D" unique_id=2083752866]
 process_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1071422899]
 offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
-[node name="IntroPlayer" parent="ColorRect" instance=ExtResource("1_a7yub")]
+[node name="IntroPlayer" parent="ColorRect" unique_id=2025263696 instance=ExtResource("1_a7yub")]
 position = Vector2(160, 155)
 scale = Vector2(0.85, 0.85)
 
-[node name="EnemyLayer" type="TileMapLayer" parent="ColorRect"]
+[node name="EnemyLayer" type="TileMapLayer" parent="ColorRect" unique_id=939793865]
 position = Vector2(23.999998, 8.999999)
 scale = Vector2(0.85, 0.85)
 tile_map_data = PackedByteArray("AAACAAYACgAAAAAAAwADAAYACgAAAAAAAwAEAAYACgAAAAAAAwAFAAYACgAAAAAAAwAKAAYACgAAAAAAAwALAAYACgAAAAAAAwAMAAYACgAAAAAAAwANAAYACgAAAAAAAwACAAUACgAAAAAABgADAAUACgAAAAAABgAEAAUACgAAAAAABgALAAUACgAAAAAABgAMAAUACgAAAAAABgANAAUACgAAAAAABgAFAAQACgAAAAAAAgAEAAQACgAAAAAAAgACAAQACgAAAAAAAgAKAAQACgAAAAAAAgALAAQACgAAAAAAAgANAAQACgAAAAAAAgALAAIACgAAAAAAAQANAAIACgAAAAAAAQAEAAIACgAAAAAAAQACAAIACgAAAAAAAQAAAAMACgAAAAAABQABAAMACgAAAAAABQADAAMACgAAAAAABQAFAAMACgAAAAAABQABAAEACgAAAAAABAADAAEACgAAAAAABAAFAAEACgAAAAAABAAGAAMACgAAAAAABQABAAQACgAAAAAAAgABAAYACgAAAAAAAwAMAAEACgAAAAAABAAKAAEACgAAAAAABAAOAAEACgAAAAAABAAJAAMACgAAAAAABQAKAAMACgAAAAAABQAMAAMACgAAAAAABQAOAAMACgAAAAAABQAPAAMACgAAAAAABQAOAAQACgAAAAAAAgAOAAYACgAAAAAAAwA=")
 tile_set = SubResource("TileSet_ca4nc")
 script = ExtResource("8_jqdx3")
 
-[node name="Timer" type="Timer" parent="ColorRect/EnemyLayer"]
+[node name="Timer" type="Timer" parent="ColorRect/EnemyLayer" unique_id=87590915]
 one_shot = true
 
-[node name="GameUI" parent="ColorRect" instance=ExtResource("8_k3812")]
+[node name="GameUI" parent="ColorRect" unique_id=1217741848 instance=ExtResource("8_k3812")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -60,10 +60,10 @@ grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.89506304, 0.9704082)
 
-[node name="Camera2D" type="Camera2D" parent="ColorRect"]
+[node name="Camera2D" type="Camera2D" parent="ColorRect" unique_id=1011336436]
 position = Vector2(160, 90)
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_xy0d8")]
+[node name="PauseMenu" parent="." unique_id=1170724135 instance=ExtResource("9_xy0d8")]
 visible = false
 anchors_preset = 0
 anchor_right = 0.0
@@ -75,6 +75,6 @@ offset_bottom = 90.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="CRTShader" parent="." instance=ExtResource("11_n2lsi")]
+[node name="CRTShader" parent="." unique_id=1521345679 instance=ExtResource("11_n2lsi")]
 
 [connection signal="timeout" from="ColorRect/EnemyLayer/Timer" to="ColorRect/EnemyLayer" method="_on_timer_timeout"]
