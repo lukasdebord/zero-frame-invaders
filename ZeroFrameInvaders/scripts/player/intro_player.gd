@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 @onready var anim_sprite = $AnimationPlayer
 @onready var timer = $Timer
+@onready var life_icons = [
+	get_node("/root/IntroScene/ColorRect/GameUI/VBoxContainer/Lives/Life1"),
+	get_node("/root/IntroScene/ColorRect/GameUI/VBoxContainer/Lives/Life2"),
+	get_node("/root/IntroScene/ColorRect/GameUI/VBoxContainer/Lives/Life3")
+]
 @onready var BulletScene := preload("res://scenes/player/Bullet.tscn")
 
 
@@ -57,7 +62,6 @@ func shoot_bullet():
 	bullet.global_position = self.global_position
 	
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Check if game is paused
@@ -72,11 +76,15 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	# remove life if hit and reset animation
 	if anim_name == "death":
 		anim_sprite.play("idle")
-		lives -= 1
-		# end game if player dies
-		if lives == 0:
-			get_tree().change_scene_to_file("res://scenes/ui/game_over.tscn")
 		
+		lives -= 1
+		if lives > 0:
+			life_icons[lives].hide()
+		# end game if player dies
+		elif lives == 0:
+			get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+			return
+			
 		can_control = true
 		var enemy_layer = get_tree().get_first_node_in_group("enemy_layer")
 		enemy_layer.can_move = true
