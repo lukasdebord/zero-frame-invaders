@@ -4,6 +4,20 @@
 [ext_resource type="Theme" uid="uid://chdtpj8prgv80" path="res://themes/default-menu.tres" id="2_mhswj"]
 [ext_resource type="PackedScene" uid="uid://b1vplgl6a7bhx" path="res://shaders/CRT_Effect.tscn" id="3_x3vyp"]
 
+[sub_resource type="GDScript" id="GDScript_x3vyp"]
+script/source = "extends VBoxContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [node name="SettingsMenu" type="Control" unique_id=1925429991]
 layout_mode = 3
 anchors_preset = 15
@@ -49,6 +63,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Menu" type="VBoxContainer" parent="VBoxContainer/MenuMargins" unique_id=195578888]
 layout_mode = 2
+script = SubResource("GDScript_x3vyp")
 
 [node name="Sound" type="Label" parent="VBoxContainer/MenuMargins/Menu" unique_id=286782857]
 layout_mode = 2
@@ -110,6 +125,7 @@ text = "CANCEL"
 
 [node name="CRTShader" parent="." unique_id=1251303979 instance=ExtResource("3_x3vyp")]
 
+[connection signal="value_changed" from="VBoxContainer/MenuMargins/Menu/SoundSlider" to="." method="_on_sound_slider_value_changed"]
 [connection signal="button_down" from="VBoxContainer/Buttons/Save" to="." method="_on_save_button_down"]
-[connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_return_button_down"]
 [connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_cancel_button_down"]
+[connection signal="button_down" from="VBoxContainer/Buttons/Cancel" to="." method="_on_return_button_down"]

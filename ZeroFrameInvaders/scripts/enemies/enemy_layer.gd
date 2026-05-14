@@ -2,12 +2,12 @@ extends TileMapLayer
 
 @onready var enemy_timer = $Timer
 
-const UPDATE_SPEED = 0.75	# Controls how often enemy pos is updated in seconds
-const X_STEP = 5			# Controls how far enemies move side to side
+const UPDATE_SPEED = 1.0	# Controls how often enemy pos is updated in seconds
+const X_STEP = 8			# Controls how far enemies move side to side
 const Y_STEP = 5			# Controls how far enemies move downwards
 
-var left_boundary = -5
-var right_boundary = 325
+var left_boundary = -15
+var right_boundary = 335
 var descend = false
 var direction = 1
 

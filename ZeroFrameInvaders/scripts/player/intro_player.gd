@@ -3,9 +3,9 @@ extends CharacterBody2D
 @onready var anim_sprite = $AnimationPlayer
 @onready var timer = $Timer
 @onready var life_icons = [
-	get_node("/root/IntroScene/ColorRect/GameUI/VBoxContainer/Lives/Life1"),
-	get_node("/root/IntroScene/ColorRect/GameUI/VBoxContainer/Lives/Life2"),
-	get_node("/root/IntroScene/ColorRect/GameUI/VBoxContainer/Lives/Life3")
+	get_node("/root/IntroScene/Background/GameUI/VBoxContainer/Lives/Life1"),
+	get_node("/root/IntroScene/Background/GameUI/VBoxContainer/Lives/Life2"),
+	get_node("/root/IntroScene/Background/GameUI/VBoxContainer/Lives/Life3")
 ]
 @onready var BulletScene := preload("res://scenes/player/Bullet.tscn")
 
@@ -52,7 +52,7 @@ func handle_player_movement(delta: float):
 		shoot_bullet()
 		anim_sprite.play("shoot")
 		timer.start()
-
+	move_and_slide()
 
 func shoot_bullet():
 	var bullet = BulletScene.instantiate()		# Spawn Bullet

@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var enemy_layer = get_tree().get_first_node_in_group("enemy_layer")
-@onready var player = get_node("/root/IntroScene/ColorRect/IntroPlayer")
+@onready var player = get_node("/root/IntroScene/Background/IntroPlayer")
 
 const SPEED = 225
 var direction = Vector2.ZERO
